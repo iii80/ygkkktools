@@ -120,7 +120,7 @@ bbr=`sysctl net.ipv4.tcp_congestion_control | awk -F ' ' '{print $3}'`
 if [[ $bbr != bbr ]]; then
 yellow "当前TCP拥塞控制算法：$bbr，BBR+FQ加速未开启" && sleep 1
 yellow "尝试安装BBR+FQ加速……" && sleep 2
-bash <(curl -L -s https://raw.githubusercontents.com/teddysun/across/master/bbr.sh)
+bash <(curl -L -s https://raw.githubusercontent.com/teddysun/across/master/bbr.sh)
 [[ -n $(lsmod | grep bbr) ]] && green "安装结束，已开启BBR+FQ加速"
 else
 green "当前TCP拥塞控制算法：$bbr，BBR+FQ加速已开启" 
